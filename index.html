@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basketball Buttons</title>
+  </head>
+  <body>
+    <button id="freeThrow">Free Throw (1 point)</button>
+    <button id="jumpShot">Jump Shot (2 points)</button>
+    <button id="threePointer">3-Pointer (3 points)</button>
+
+    <button id="totalButton">Total</button>
+
+    <div id="totalScore">Total Score: <span id="score">0</span></div>
+
+    <script>
+      // Variables to store the score
+      let score = 0;
+
+      // Function to handle button clicks
+      function handleButtonClick(shotType, points) {
+        console.log(`Made a ${shotType}! ${points} points!`);
+        // Update the score
+        score += points;
+      }
+
+      // Function to handle total button click
+      function handleTotalButtonClick() {
+        // Display the total score on the main screen
+        document.getElementById("score").innerText = score;
+      }
+
+      // Add event listeners to buttons
+      document
+        .getElementById("freeThrow")
+        .addEventListener("click", function () {
+          handleButtonClick("Free Throw", 1);
+        });
+
+      document
+        .getElementById("jumpShot")
+        .addEventListener("click", function () {
+          handleButtonClick("Jump Shot", 2);
+        });
+
+      document
+        .getElementById("threePointer")
+        .addEventListener("click", function () {
+          handleButtonClick("3-Pointer", 3);
+        });
+
+      document
+        .getElementById("totalButton")
+        .addEventListener("click", function () {
+          handleTotalButtonClick();
+        });
+    </script>
+  </body>
+</html>
